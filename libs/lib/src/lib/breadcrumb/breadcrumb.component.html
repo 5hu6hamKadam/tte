@@ -1,0 +1,10 @@
+<nav class="bg-white p-2 flex items-center">
+  <ng-template ngFor let-breadcrumb [ngForOf]="breadcrumbs">
+    <a
+      [routerLink]="breadcrumb.link"
+      class="text-blue-500 hover:text-blue-800 mr-2"
+      >{{ breadcrumb.label }}</a
+    >
+    <span class="text-gray-500 mr-2">/</span>
+  </ng-template>
+</nav>

@@ -1,0 +1,102 @@
+{
+  "name": "games",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/games/src",
+  "prefix": "tte",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/games",
+        "index": "apps/games/src/index.html",
+        "main": "apps/games/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/games/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/games/src/favicon.ico", "apps/games/src/assets"],
+        "styles": ["apps/games/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/games/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/games/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "games:build:production"
+        },
+        "development": {
+          "browserTarget": "games:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "games:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/games/**/*.ts", "apps/games/**/*.html"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "games:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "games:build:development"
+        },
+        "production": {
+          "buildTarget": "games:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,14 @@
+<aside class="bg-blue-900 p-4 h-full">
+  <ul class="text-white">
+    <li *ngFor="let menu of menus" class="my-2">
+      <a
+        [routerLink]="menu.link"
+        [routerLinkActiveOptions]="{ exact: menu.link === '/' }"
+        class="block text-white p-2 rounded-sm"
+        routerLinkActive="bg-blue-700"
+      >
+        <i [class]="menu.icon" class="mr-2"></i> {{ menu.label }}
+      </a>
+    </li>
+  </ul>
+</aside>

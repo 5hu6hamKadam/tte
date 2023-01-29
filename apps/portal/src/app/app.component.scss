@@ -1,0 +1,24 @@
+.wave-1 {
+  animation: wave-animation-1 20s linear infinite;
+}
+.wave-2 {
+  animation: wave-animation-2 20s linear infinite;
+  animation-delay: -10s;
+}
+
+@keyframes wave-animation-1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1440px);
+  }
+}
+@keyframes wave-animation-2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1440px);
+  }
+}
