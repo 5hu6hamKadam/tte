@@ -5,5 +5,15 @@
   <div class="col-span-3 overflow-y-auto">
     <tte-titlebar [titlebar]="titleBar"></tte-titlebar>
     <tte-breadcrumb [breadcrumbs]="breadcrumbs"></tte-breadcrumb>
+    <div class="grid grid-cols-4">
+      <div class="col-span-4 md:col-span-2">
+        <h2 class="pl-6 font-bold text-md">Games</h2>
+        <tte-app-list [apps]="games"></tte-app-list>
+      </div>
+      <div class="col-span-4 md:col-span-2">
+        <h2 class="pl-6 font-bold text-md">Apps</h2>
+        <tte-app-list [apps]="games"></tte-app-list>
+      </div>
+    </div>
   </div>
 </div>

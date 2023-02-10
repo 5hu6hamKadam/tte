@@ -1,0 +1,36 @@
+<ng-container
+  *ngIf="{
+    drill: displayDrill$ | async,
+    drillLength: drillLength$ | async,
+    drillIndex: drillIndex$ | async
+  } as meta"
+>
+  <ng-container
+    *ngIf="meta.drill && meta.drillLength !== null && meta.drillIndex !== null"
+  >
+    <tte-screen
+      [drill]="meta.drill"
+      [activeDrillIndex]="meta.drillIndex"
+      [drillLength]="meta.drillLength"
+      [(input)]="userInput"
+      (inputChange)="onUserInput($event)"
+    ></tte-screen>
+  </ng-container>
+</ng-container>
+<div class="flex justify-center pt-2">
+  <tte-palm
+    *ngIf="fingerIndex$ | async as fingerIndex"
+    mode="left"
+    [activeFingerIndex]="fingerIndex"
+  ></tte-palm>
+  <tte-keyboard
+    class="mx-2"
+    *ngIf="keyboardKey$ | async | lowercase as keyboardKey"
+    [activeChar]="keyboardKey"
+  ></tte-keyboard>
+  <tte-palm
+    *ngIf="fingerIndex$ | async as fingerIndex"
+    mode="right"
+    [activeFingerIndex]="fingerIndex"
+  ></tte-palm>
+</div>

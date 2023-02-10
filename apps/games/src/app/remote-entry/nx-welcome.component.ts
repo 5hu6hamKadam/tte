@@ -433,7 +433,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome games 👋
+            Welcome shubham 👋
           </h1>
         </div>
 
@@ -843,4 +843,6 @@ nx affected:e2e</pre>
   styles: [],
   encapsulation: ViewEncapsulation.None,
 })
-export class NxWelcomeComponent {}
+export class NxWelcomeComponent {
+  constructor() {}
+}

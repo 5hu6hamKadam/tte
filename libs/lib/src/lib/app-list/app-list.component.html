@@ -1,0 +1,19 @@
+<div class="bg-white p-6 rounded-md">
+  <div class="flex mb-4" *ngFor="let app of apps">
+    <div class="mr-2">
+      <i [class]="app.icon"></i>
+    </div>
+    <div class="flex-1">
+      <a [href]="app.link" class="text-lg font-medium">{{ app.label }}</a>
+      <div class="text-gray-500">{{ app.category }}</div>
+    </div>
+    <div class="ml-auto">
+      <div class="text-yellow-500">
+        <i
+          *ngFor="let i of [1, 2, 3, 4, 5]"
+          [class]="i <= app.rating ? 'fas fa-star' : 'far fa-star'"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>
